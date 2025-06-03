@@ -60,16 +60,18 @@ const allowedOrigins = [
 // Middleware
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
+    // Allow requests with no origin (like curl or mobile apps)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      console.warn(`❌ Blocked CORS request from origin: ${origin}`);
+      return callback(null, false); // Deny without throwing an error
     }
   },
   credentials: true
 }));
+
 app.use(express.json());
 app.use(morgan('dev'));
 
