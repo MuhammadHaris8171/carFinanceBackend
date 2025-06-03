@@ -1,0 +1,17 @@
+{
+  "name": "car-nihat-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for Car Financing System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "telegraf": "^4.15.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+} 
