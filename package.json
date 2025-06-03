@@ -8,7 +8,8 @@
     "dev": "nodemon app.js",
     "init-db": "node scripts/init-db.js",
     "bot": "node bot/start-bot.js",
-    "bot-dev": "nodemon bot/start-bot.js"
+    "bot-dev": "nodemon bot/start-bot.js",
+    "postinstall": "npm rebuild sqlite3"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
