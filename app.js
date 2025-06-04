@@ -53,25 +53,12 @@ Object.values(sequelize.models).forEach(model => {
     model.associate(sequelize.models);
   }
 });
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://car-finance-frontend.vercel.app',
-];
+
 // Middleware
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like curl or mobile apps)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      console.warn(`❌ Blocked CORS request from origin: ${origin}`);
-      return callback(null, false); // Deny without throwing an error
-    }
-  },
+  origin: 'http://localhost:3000',
   credentials: true
 }));
-
 app.use(express.json());
 app.use(morgan('dev'));
 
